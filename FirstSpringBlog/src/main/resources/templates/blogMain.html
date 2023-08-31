@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacts</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="sections/header"></header>
+
+
+<div class="container mt-5">
+  <div th:each="item:${posts}">
+    <h3 th:text="${item.getTitle()}"></h3>
+    <h3 th:text="${item.getTag()}"></h3>
+    <h3 th:text="${item.getShortInfo()}"></h3>
+    <h3 th:text="${item.getFullInfo()}"></h3>
+    <a th:href="'/blog/' + ${item.getId()}">Get all information</a>
+    <br>
+  </div>
+</div>
+
+<div th:insert="sections/footer"></div>
+</body>
+</html>

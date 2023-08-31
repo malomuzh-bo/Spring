@@ -2,22 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Contacts</title>
+    <title>Add post</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
 <header th:insert="sections/header"></header>
-<h3>Contacts:</h3>
-<ul>
-  <li>+380 96 898 41 83</li>
-  <li>+48 486 117 220</li>
-</ul>
 
-<div class="container mt-5">
-    <div th:each="item:${posts}">
-        <h3 th:text="${item.get}"></h3>
-    </div>
-</div>
+<form method="post" action="/blog/add">
+    <input name="title" placeholder="Enter title..."/>
+    <input name="tag" placeholder="Enter tag..."/>
+    <input name="shortInfo" placeholder="Enter short info..."/>
+    <textarea name="longInfo" placeholder="Enter full info..."></textarea>
+    <input name="createPost" type="submit" value="Create">
+</form>
 
 <div th:insert="sections/footer"></div>
 </body>
