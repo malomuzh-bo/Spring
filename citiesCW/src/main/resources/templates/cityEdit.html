@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="sections/header"></header>
+
+<form method="post" th:action="'/' + ${city.getId()} + '/edit'">
+    <input th:value="${city.getCityName()}" name="cityName" placeholder="Enter name of city..." type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    <br>
+    <input th:value="${city.getPersonAmo()}" name="amo" placeholder="Enter amount of people..." type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    <br>
+    <input th:value="${city.getInfo()}" name="info" placeholder="Enter info..." type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    <br>
+    <input th:value="${city.getLatitude()}" name="latitude" placeholder="Enter latitude..." type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    <br>
+    <input th:value="${city.getLongitude()}" name="longitude" placeholder="Enter longitude..." type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    <br>
+    <input name="editCity" type="submit" value="Edit" class="form-control">
+</form>
+
+<div th:insert="sections/footer"></div>
+</body>
+</html>

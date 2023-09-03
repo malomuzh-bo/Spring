@@ -1,0 +1,16 @@
+<div class="search nav-scroller py-1 mb-2">
+    <nav th:fragment="header" class="nav d-flex justify-content-between">
+    <a class="p-2 text-muted" href="/">Home</a>
+    <a class="p-2 text-muted" href="/add">Add city</a>
+    <form action="/search">
+        <input type="text"
+               placeholder=" Search..."
+               name="search"/>
+        <button>
+            <i class="fa fa-search"
+               style="font-size: 18px;">
+            </i>
+        </button>
+    </form>
+    </nav>
+</div>
