@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Information about landlord</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+        crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="sections/header"></header>
+
+<h2>Landlord information:</h2>
+<br>
+<h4 th:text="'Username: ' + ${landlord.getUsername()}"></h4>
+<p th:text="'Pass: ' + ${landlord.getPass()}"></p>
+<br>
+<div th:each="apartment : ${apartments}">
+    <form method="post" th:action="@{/landlords/{id}/addApartment/{apartment_id}(id=${landlord.getId()}, apartment_id = ${apartment.getId()})}">
+        <button type="submit" class="btn btn-outline-success" th:text="'Add ' + ${apartment.getTitle()} + ' to ' + ${landlord.getUsername()}"></button>
+    </form>
+</div>
+
+<div th:insert="sections/footer"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Adding apartment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+        crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="sections/header"></header>
+
+<form method="post" action="/apartments/add">
+  <input name="title" placeholder="Enter title..." class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+  <br>
+  <input name="price" type="number" placeholder="Enter price..." class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+  <br>
+  <input name="addApart" type="submit" value="Create" class="form-control">
+</form>
+
+<div th:insert="sections/footer"></div>
+</body>
+</html>

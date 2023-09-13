@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Landlords</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="sections/header"></header>
+<a class="btn btn-outline-success form-control" href="/landlords/add">Add landlord</a>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Apartment Id</th>
+        <th>Operations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="landlord : ${landlords}">
+        <td th:text="${landlord.getUsername()}"></td>
+        <!--hide password-->
+        <td>********</td>
+        <td th:text="${landlord.getApartment().getId()}"></td>
+        <td>
+            <a class="btn btn-outline-primary" th:href="'/landlords/' + ${landlord.getId()}">Info</a>
+            <a class="btn btn-outline-warning" th:href="'/landlords/' + ${landlord.getId()} + '/edit'">Edit</a>
+            <a class="btn btn-outline-danger" th:href="'/landlords/' + ${landlord.getId()} + '/remove'">Remove</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:insert="sections/footer"></div>
+</body>
+</html>

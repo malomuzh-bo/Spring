@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rents</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="sections/header"></header>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Client</th>
+        <th>Apartment</th>
+        <th>Landlord</th>
+        <th>Operations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rent : ${rents}">
+        <td th:text="${rent.getClient().getUsername()}"></td>
+        <td th:text="${rent.getApartment().getTitle()}"></td>
+        <td th:text="${rent.getLandlord().getUsername()}"></td>
+        <td>
+<!--            <a class="btn btn-outline-warning" th:href="'/rents/' + ${rent.getId()} + '/edit'">Edit</a>-->
+            <a class="btn btn-outline-danger" th:href="'/rents/' + ${rent.getId()} + '/remove'">Remove</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:insert="sections/footer"></div>
+</body>
+</html>

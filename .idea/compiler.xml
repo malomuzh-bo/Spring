@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="citiesCW" />
         <module name="FirstSpringBlog" />
+        <module name="rentingDB" />
       </profile>
     </annotationProcessing>
   </component>
@@ -15,6 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="FirstSpringBlog" options="-parameters" />
       <module name="citiesCW" options="-parameters" />
+      <module name="rentingDB" options="-parameters" />
     </option>
   </component>
 </project>
