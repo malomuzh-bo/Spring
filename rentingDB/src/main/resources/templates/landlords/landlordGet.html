@@ -13,7 +13,9 @@
 <h2>Landlord information:</h2>
 <br>
 <h4 th:text="'Username: ' + ${landlord.getUsername()}"></h4>
-<p th:text="'Pass: ' + ${landlord.getPass()}"></p>
+<h5 th:text="'Pass: ' + ${landlord.getPass()}"></h5>
+<br>
+<h6 th:text="'Average apartments:' + ${} "></h6>
 <br>
 <div th:each="apartment : ${apartments}">
     <form method="post" th:action="@{/landlords/{id}/addApartment/{apartment_id}(id=${landlord.getId()}, apartment_id = ${apartment.getId()})}">

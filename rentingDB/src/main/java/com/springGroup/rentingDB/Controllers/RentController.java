@@ -44,7 +44,7 @@ public class RentController {
             arr.add(apartment);
             list.add(apartment.getPrice());
         }
-        float avg = avgPrice(list);
+        float avg = avgNum(list);
         int min = Collections.min(list);
         int max = Collections.max(list);
         model.addAttribute("apartments", arr);
@@ -53,7 +53,7 @@ public class RentController {
         model.addAttribute("max", max);
         return "apartments/apartments";
     }
-    private static float avgPrice(List<Integer> numbers) {
+    private static float avgNum(List<Integer> numbers) {
         Integer sum = 0;
         if (!numbers.isEmpty()) {
             for (Integer number : numbers) {
@@ -313,14 +313,14 @@ public class RentController {
     }
     @GetMapping("/landlords/{id}")
     public String getLandlord(@PathVariable(value = "id")Long id, Model model){
-        Iterable<Apartment> apartments = a_repository.findAll();
-        Iterable<Landlord> landlords = l_repository.findAll();
-
         if (!l_repository.existsById(id)){
             return "redirect:/landlords";
         }
 
+        Iterable<Apartment> apartments = a_repository.findAll();
+        Iterable<Landlord> landlords = l_repository.findAll();
         ArrayList<Apartment> arr = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
 
         for (Apartment apartment : apartments) {
             boolean is_free = true;
@@ -333,7 +333,16 @@ public class RentController {
             if (is_free) {
                 arr.add(apartment);
             }
+            list.add(apartment);
         }
+
+        float avg = avgNum(list);
+        int min = Collections.min(list);
+        int max = Collections.max(list);
+        model.addAttribute("apartments", arr);
+        model.addAttribute("avg", avg);
+        model.addAttribute("min", min);
+        model.addAttribute("max", max);
 
         model.addAttribute("apartments", arr);
 
